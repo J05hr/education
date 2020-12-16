@@ -1,0 +1,241 @@
+CS 314
+Programming Assignment V
+========================
+
+Due: Monday, May 6
+Hand in by Tuesday, May 7, at 3:00 AM
+
+Release 2.
+
+For this assignment, you will write several Prolog predicates. Create a file
+named "project5.pl" (note lower-case letter) or use the provided skeleton file.
+In it, provide definitions for the relations described below. You must provide
+definitions for each relation, even if that definition is simply "false".
+
+Submit your project5.pl through Sakai before the deadline. A grace period of
+three hours is provided; use this opportunity to make sure that your project
+was submitted correctly.
+
+It is recommended that you use the library(clpfd) module for arithmetic, 
+rather than the classic Prolog arithmetic relations.
+
+YOU ARE RESPONSIBLE FOR MAKING SURE YOUR CODE COMPILES. If your program contains
+parse errors or otherwise cannot be read, you will receive no points.
+
+DO NOT WAIT UNTIL THE LAST MINUTE. A few of these relations are subtle, and you
+will need time to absorb the problem and understand how you must solve it.
+
+Two of the relations must be usable in multiple modes, meaning that different
+parameters may be used as input or output. This is a guide for knowing how your
+relation will be tested; it is not advised to write multiple predicates or to
+check whether a particular parameter is instantiated.
+
+Many of these relations are deterministic or semi-deterministic, meaning that
+they should not give more than one answer. For our purposes, we do not count
+a final answer that fails. That is, returning "X = 1; false." will be treated
+as the same as "X = 1."
+
+You are free to define additional predicates for your own use.
+
+This project is worth 70 points. Each relation is worth 10 points, except for
+sselect/3, which is worth 20. Each relation will be tested with a set of unit
+tests, and you will receive points in proportion how many your relation handles
+correctly.
+
+
+Part I: Binary Trees
+--------------------
+
+tree(+Tree)
+
+    tree/1 succeeds when its argument is an instantiated binary tree. A binary
+    tree may be tip (representing an empty tree) or bin(Left,Here,Right), where
+    Left and Right are binary trees and Here may be anything (including an
+    uninstantiated variable).
+    
+    tree/1 should be deterministic when its argument is a complete tree
+    structure (i.e., with only the Here values possibly being variables).
+
+
+    ?- tree(bin(tip,X,tip)).
+    true.
+    
+    ?- tree(bin(tip,1,2)).
+    false.
+    
+    ?- tree(bin(bin(tip,1,tip),0,bin(tip,not_an_integer,tip))).
+    true.
+
+symmetric(+Tree)
+
+    symmetric/1 succeeds when its argument is an instantiated binary tree that
+    is symmetric: that is, switching the left and right children of every node
+    results in an identical tree.
+
+
+    ?- symmetric(17).
+    false.
+    
+    ?- symmetric(tip).
+    true.
+    
+    ?- symmetric(bin(bin(tip,1,tip), 0, bin(tip,1,tip))).
+    true.
+    
+    ?- symmetric(bin(bin(tip,X,tip), Y, bin(tip,atom,tip))).
+    X = atom.
+    
+    ?- symmetric(bin(bin(tip,X,tip), Y, bin(tip,Z,tip))).
+    X = Z.
+    
+height(+Tree, ?Height)
+
+    height/2 holds if Tree is a binary tree with height Height, meaning that the
+    longest path from a root to a leaf has length Height. We will assume that
+    an empty tree (tip) has height 0.
+    
+    height/2 should fail if Tree is not a binary tree, or Height is negative.
+    
+    ?- height(bin(tip,X,tip), 1).
+    true.
+
+    ?- height(bin(bin(tip, X, tip), Y, tip), N).
+    N = 2.
+
+perfect(?Tree, ?Height)
+
+    perfect/2 holds if Tree is a perfect binary tree with height Height. In a
+    perfect binary tree, every node has either 2 or 0 children, and every path
+    from the root to a leaf has the same length.
+    
+    This predicate must be usable in four modes:
+    
+    1. perfect(+Tree, +Height) is semi-deterministic
+        succeeds if Tree is perfect and has height Height
+        
+        ?- perfect(bin(tip,X,tip), 1).
+        true.
+
+        ?- perfect(tip, 1).
+        false.
+    
+    2. perfect(+Tree, -Height) is semi-deterministic
+        succeeds if Tree is perfect, and instantiates Height with its height
+
+        ?- perfect(bin(tip,X,tip), N).
+        N = 1.
+
+        ?- perfect(bin(bin(tip,X,tip),Y,tip), N).
+        false.
+    
+    3. perfect(-Tree, +Height) is deterministic
+        instantiates Tree with a perfect binary tree of height Height.
+        
+        Note: behavior is undetermined if Height is negative
+        
+        ?- perfect(T, 0).
+        T = tip.
+        
+        ?- perfect(bin(tip,X,tip), N).
+        N = 1.
+    
+    4. perfect(?Tree, ?Height) is non-deterministic
+        succeeds when Tree and Height can be instantiated such that Tree is a
+        perfect binary tree of height Height.
+        
+        ?- perfect(T, N).
+        T = tip,
+        N = 0 ;
+        T = bin(tip,X,tip),
+        N = 1 .
+        
+        ?- perfect(bin(L,X,R), N).
+        L = R, R = tip,
+        N = 1 ;
+        L = bin(tip, _1, tip),
+        R = bin(tip, _2, tip),
+        N = 2 . 
+
+
+Part II: Sorted Lists
+---------------------
+
+sorted(+List)
+
+    sorted/1 succeeds if its argument is a list of integers in non-decreasing
+    order.
+    
+    ?- sorted([1,2,3]).
+    true.
+    
+    ?- sorted([1,1,1]).
+    true.
+
+    ?- sorted([1,2,1]).
+    false.
+
+
+sselect(?Item, ?List, ?ListWithItem)
+
+    sselect/3 holds when List and ListWithItem are sorted lists, and
+    ListWithItem is the result of adding Item to List.
+    
+    This predicate must be usable in four modes. It must be semi-deterministic
+    in each mode.
+    
+    1. sselect(+Item, ++List, ++ListWithItem)
+    
+        Check that Item is placed correctly, and that the prefixes of List and
+        ListWithItem are sorted.
+    
+        ?- sselect(2, [3], [2,3]).
+        true.
+
+        ?- sselect(2, [3], [3,2]).
+        false.
+            
+    2. sselect(+Item, ++List, -ListWithItem)
+    
+        Instantiate ListWithItem with the result of inserting Item into List.
+        
+        ?- sselect(2, [1,3], L).
+        L = [1,2,3].
+            
+    3. sselect(+Item, -List, ++ListWithItem)
+    
+        Succeeds if ListWithItem contains Item, and instantiates List with the
+        result of removing Item from ListWithItem.
+        
+        ?- sselect(2, L, [1,2,3]).
+        L = [1, 3].
+    
+    4. sselect(-Item, ++List, ++ListWithItem)
+    
+        Succeeds if ListWithItem contains one element not in List, and
+        instantiates Item with the removed item.
+    
+        ?- sselect(X, [1,3], [1,2,3]).
+        X = 2.
+
+        ?- sselect(X, [1,3], [1,2,3,4]).
+        false.
+
+    
+    For efficiency, only a prefix of List and ListWithItem need be checked for
+    ordering: enough to determine that Item is placed correctly. It is
+    sufficient to require that the suffixes of List and ListWithItem are the
+    same. That is, these responses are acceptable:
+    
+    ?- sselect(2, [1,3|X], [1,2,3|Y]).
+    X = Y.
+
+    ?- sselect(2, [1,3,2], L).
+    L = [1,2,3,2].
+
+    ?- sselect(2, [1,X,4], L).
+    X in 2..sup,
+    L = [1,2,X,4] ;
+    X = 1,
+    L = [1,1,2,4].
+    
+    However, you may also design sselect/3 to fail for these queries.

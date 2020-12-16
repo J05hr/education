@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Rutgers-Free-Ride:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/Rutgers_Free_Ride_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Rutgers-Free-Ride" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="Rutgers-Free-Ride/web/Web" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,26 @@
+[
+  {
+    "name":"How You Remind Me",
+    "artist":"Nickelback",
+    "album":"Silver Side Up",
+    "year":"2001"
+  },
+  {
+    "name":"Thriller",
+    "artist":"Michael Jackson",
+    "album":"Off the Wall",
+    "year":"1979"
+  },
+  {
+    "name":"All You Need Is Love",
+    "artist":"The Beatles",
+    "album":"",
+    "year":"1967"
+  },
+  {
+    "name":"HappyBirthday",
+    "artist":"everyone",
+    "album":"",
+    "year":""
+  }
+]

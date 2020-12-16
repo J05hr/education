@@ -1,0 +1,84 @@
+Working with QuickCheck Locally
+===============================
+
+If you have installed Haskell using the Haskell Platform, you can use
+"cabal" to create a local installation of QuickCheck to use with your project.
+
+The simplest process will be to create a project for PA4 using cabal init.
+
+First, create a directory containing pa4.lhs and Project4.hs.
+
+In that directory, execute "cabal init"
+
+$ cabal init
+
+This will walk through several questions in the process of creating a project
+information file named pa4.cabal (assuming you name the package "pa4"). You can
+choose the default answer for most of these, as they are not relevant for our
+purposes.
+
+For "Package name?" enter "pa4".
+
+For "What does the package build:" choose "2) Executable".
+
+For "What is the main module of the executable:", choose "3) Other" and enter
+"pa4.lhs".
+
+For "Source directory:" choose "1) (none)".
+
+
+This will create the file pa4.cabal. You will need to modify it in two places.
+
+First, uncomment the line "other-modules" and add "Project4".
+
+Second, add ", QuickCheck" to the end of build-depends.
+
+The resulting file will look something like this:
+
+====
+cabal-version:       >=1.10
+name:                pa4
+version:             0.1.0.0
+license:             BSD3
+license-file:        LICENSE
+author:              David Menendez
+maintainer:          davemm@cs.rutgers.com
+build-type:          Simple
+extra-source-files:  CHANGELOG.md
+
+
+executable pa4
+  main-is:             pa4.lhs
+  other-modules:       Project4
+  -- other-extensions:
+  build-depends:       base >=4.12 && <4.13, QuickCheck
+  -- hs-source-dirs:
+  default-language:    Haskell2010
+=====
+
+
+If you do not already have QuickCheck installed, cabal will download, compile,
+and install it and its dependencies the first time you attempt to build or
+run your project. Any of these commands will cause the installation, if needed:
+
+$ cabal new-repl
+
+	Opens ghci and loads your Project4 and Main modules.
+	
+$ cabal new-run
+
+	Compiles pa4 and executes it.
+	
+$ cabal new-build
+
+	Compiles pa4.
+
+Once QuickCheck is installed in the package, it should also be available to ghci
+and runhaskell when they are called from your package directory. (I have not
+confirmed that this works on Windows.)
+
+
+
+See also:
+https://cabal.readthedocs.io/en/latest/developing-packages.html
+https://cabal.readthedocs.io/en/latest/nix-local-build.html

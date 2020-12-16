@@ -1,0 +1,83 @@
+//Joshua Rozenberg - jr922
+//Kenneth Scholwinski - kjs270
+
+Due Tuesday 11:00pm
+
+
+UI
+    restrictions
+        - only one window
+        - single application window should be in fxml ONLY.
+        - You may use pop-ups ONLY to show an error message,
+        - You may use pop-ups ONLY to ask for confirm/cancel of an action
+    features
+        - one list contains Song Name & artist
+        - song details window below that
+        - clear buttons/actions, dont need explaining
+
+
+
+Objects
+    - SongNode
+        name
+        artist
+        album
+        year
+    - song list
+        - list of songs
+        - No Dups
+        - sorted by Song Name, then Artist
+    - json
+        - write to json
+        - read from jason
+        - no jason = create sample json
+
+Functionality
+    - song node
+        - constructor for various types of input
+        - exceptions for bad inputs
+    - song list
+        - add new song
+        - Edit/Update
+            - add Equals Method
+        - delete song matching...
+            - add Equals Method
+        - cancel action
+    - clicking song on list populates details window
+
+
+
+
+DO's/DONT's
+-- You get up to 3 submissions --
+    - use java fx 8
+    - only one window
+    - no table view
+    - no music
+    - worry about aesthetics
+    - only libraries
+        java.*
+        JSON.*
+        javaFX.*
+    Naming
+        - SongLib
+        - Have package
+        - Student Names on top of files
+    -Export your project to a zip file called songlib.zip
+
+
+Deductions
+    5 points, if the application window does not show up at all, but we can fix the code to make it show. So make sure it actually shows when you run the application.
+    5 points, if the application window cannot be closed, or it closes but does not terminate the application
+    5 points, if you do not implement your main method in a class named SongLib (see Submission Instructions)
+    5 points, if you have any code in the default package (directly under src) (see Submission Instructions)
+    5 points, if you do not write your name at the top of all the files you submit.
+    10 points, if the displayed list of songs is not in alphabetical order as specified in the Song list display item.
+    10 points, if you did not use FXML for the UI design of the main window. (This does not apply to the pop-up dialogs to report input errors, or for confirming/canceling any of the add/edit/delete actions.)
+    10 points, if any window other than the application frame pops up at any time (except for error dialogs for incorrect add and edit, if you choose to use dialogs for these, or dialogs for confirm/cancel of any action).
+    10 points, if you use a table view anywhere in your UI.
+    10 points, if you do not submit your implementation in a project zip file (see Submission Instructions) that can imported into Eclipse as a complete project
+
+    Points will be deducted for each test case that cannot be tried because either your data file or your UI does not allow for testing it. The exact number of points will depend the point value of the test case(s).
+    No credit, if you used any external libraries--you are only allowed to use the standard Java SDK, and optionally JSON (with permission from grader).
+    No credit, if your program does not compile, or cannot be run. This is a course in software development, there is NO excuse to submit something that does not compile or does not run.

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navdrawer_inventory_list"
+        android:title="Inventory"
+        android:icon="@drawable/inventory_list" />
+    <item
+        android:id="@+id/navdrawer_reports"
+        android:title="Reports"
+        android:icon="@drawable/reports" />
+    <!--<item
+        android:id="@+id/navdrawer_shortcut"
+        android:title="Shortcut"
+        android:icon="@drawable/settings" />-->
+</menu>

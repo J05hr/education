@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style
+        name="navdrawer_style"
+        parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:textColor">@color/grayText</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">@font/roboto_condensed_regular</item>
+    </style>
+</resources>
