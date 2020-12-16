@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Inventory</string>
+    <string name="account_icon_desc">Account Icon</string>
+    <string name="manager_text">Manager</string>
+    <string name="customer_text">Customer</string>
+    <string name="employee_text">Employee</string>
+    <string name="inventory_text">Inventory</string>
+    <string name="placeholder_text">Placeholder</string>
+    <string name="dialog_filter_title">Filter Inventory</string>
+    <string name="category_text">Category</string>
+    <string name="quantity_range_text">Quantity Range</string>
+    <string name="cancel_text">Cancel</string>
+    <string name="filter_text">Filter</string>
+    <string name="clear_text">Clear</string>
+    <string name="name_text">Name</string>
+    <string name="quantity_text">Quantity</string>
+    <string name="categories_text">Categories</string>
+    <string name="item_name_placeholder">Item Name</string>
+    <string name="item_quantity_placeholder">Quantity</string>
+    <string name="item_categories_placeholder">Categories</string>
+    <string name="dialog_delete_title_placeholder">Delete ____</string>
+    <string name="delete_confirmation_placeholder">Are you sure you would like to delete ____?</string>
+    <string name="delete_text">Delete</string>
+    <string name="gen_qrcode">Generate New Code</string>
+    <string name="shortcut_text">Shortcut</string>
+    <string name="users_text">Users</string>
+    <string name="item_weight_text">Weight</string>
+    <string name="item_desc_text">Description</string>
+    <string name="item_price_text">Price</string>
+    <string name="item_brand_text">Brand</string>
+    <string name="repoGen">Generate Report</string>
+    <string name="clickToGen">Click Generate</string>
+</resources>

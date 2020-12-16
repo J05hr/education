@@ -1,0 +1,108 @@
+
+
+
+-- Paradox Timeline Simulation --
+
+ Choose an action: (b)uild the initial timeline, (r)un a game, (p)rint the event tree, (f)ind an event, (l)ist a person, (q)uit? => b
+
+Enter the starting year => 0
+Enter the number of generations (0-20) => 20
+Building timeline..................... Timeline complete
+
+ -- Paradox Timeline Simulation --
+
+ Choose an action: (b)uild the initial timeline, (r)un a game, (p)rint the event tree, (f)ind an event, (l)ist a person, (q)uit? => r
+
+Enter the number of players => 3
+
+ ----Turn 1----
+
+Player 1 it's your turn
+You were born at EventID 3991
+
+
+ Choose an action: (r)emove event, (s)tart a war, (i)troduce a plague, (d)iscover an invention, (q)uit? => r
+Pick an event to change (eventID) => 56800
+Removing the event and rebuilding the timeline
+
+Player 2 it's your turn
+You were born at EventID 6722
+
+
+ Choose an action: (r)emove event, (s)tart a war, (i)troduce a plague, (d)iscover an invention, (q)uit? => s
+Pick an event to change (eventID) => 1776
+Setting war on the timeline at the given event
+
+Player 3 it's your turn
+You were born at EventID 4326
+
+
+ Choose an action: (r)emove event, (s)tart a war, (i)troduce a plague, (d)iscover an invention, (q)uit? => d
+Pick an event to change (eventID) => 309768
+Discover an invention as a child of this event
+
+ ----End of turn 1----
+
+
+  ----Report Cards----
+
+Turn 1 Stats:
+
+Current Population:
+240958
+
+Total Wealth Generated: 648319647
+
+Player 1 Stats:
+
+Current Relatives:  28790
+
+Current Family Wealth:  52600712
+
+
+Player 2 Stats:
+
+Current Relatives:  64228
+
+Current Family Wealth:  254226351
+
+
+Player 3 Stats:
+
+Current Relatives:  175429
+
+Current Family Wealth:  381654296
+
+
+
+
+
+
+
+  ----Final Game Stats: ----
+
+Current Population:
+413712
+
+Total Wealth Generated: 772121280
+
+Player 1 Stats:
+
+Change in Relatives: -7114
+
+Change in Family Wealth Generated: -23327658
+
+
+Player 2 Stats:
+
+Change in Relatives:  2558
+
+Change in Family Wealth Generated: 28761654
+
+
+Player 3 Stats:
+
+Change in Relatives: 57881
+
+Change in Family Wealth Generated: 187614237
+
